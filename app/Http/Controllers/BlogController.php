@@ -93,7 +93,7 @@ class BlogController extends Controller
               if( $blog->save())
               {
                $d= Blogsubscription::getSubscriber($blog->id);
-                foreach($d as $e)
+                foreach($d as $error)
                 {
                    dispatch(new SendEmail($e));
                 }
